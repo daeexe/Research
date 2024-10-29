@@ -5,7 +5,7 @@ library(stringr)
 library(lubridate)
 
 # Load your data (assuming it's stored in a CSV or similar file)
-data <- read.csv("C:/Users/DannahAdesanya/Downloads/fusion_GLOBAL_DATAFLOW_UNICEF_1.0_all (1).csv", stringsAsFactors = FALSE)
+data <- read.csv("C:/Users/Downloads/fusion_GLOBAL_DATAFLOW_UNICEF_1.0_all (1).csv", stringsAsFactors = FALSE)
 
 # Step 1: Clean and standardize column names
 colnames(data) <- c("DATAFLOW", "REF_AREA", "INDICATOR", "SEX", "TIME_PERIOD", "OBS_VALUE", 
@@ -16,7 +16,7 @@ colnames(data) <- c("DATAFLOW", "REF_AREA", "INDICATOR", "SEX", "TIME_PERIOD", "
 
 # Step 2: Clean text columns and remove special characters
 data <- data %>% 
-  mutate(across(everything(), ~str_replace_all(., "é", "�")))
+  mutate(across(everything(), ~str_replace_all(., "Ã©", "é")))
 
 # Step 3: Split 'DATAFLOW' column into 'Provider' and 'Category'
 data <- data %>% 
